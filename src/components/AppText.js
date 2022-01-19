@@ -1,9 +1,9 @@
 import React from 'react';
-import {Text, StyleSheet} from 'react-native';
+import { Text, StyleSheet } from 'react-native';
 import consts from '@constants/index';
 import colors from '@constants/colors';
 
-const AppText = ({...props}) => {
+const AppText = ({ ...props }) => {
   const {
     xlarge,
     large,
@@ -17,7 +17,7 @@ const AppText = ({...props}) => {
     style,
     bright,
     gray,
-    link    
+    link
   } = props;
 
   let fontStyle = styles.normal;
@@ -35,12 +35,12 @@ const AppText = ({...props}) => {
   let color = colors.textDefault;
   if (bright) color = colors.textBright;
   if (gray) color = colors.textGray;
-  if (link) color = colors.lightBlue;  
+  if (link) color = colors.lightBlue;
 
   return (
     <Text
       {...props}
-      style={[{fontFamily, color}, fontStyle, style]}
+      style={[{ fontFamily, color }, fontStyle, style]}
     />
   );
 };

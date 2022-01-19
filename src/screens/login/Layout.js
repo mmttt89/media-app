@@ -1,16 +1,19 @@
 import React from 'react'
 import { StyleSheet, View, ScrollView } from 'react-native'
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { LogoIcon } from "@assets/icons/index"
 import { AppTextInput, AppText, AppButton, AppIcon, AppTouch } from '@components/index';
 import colors from "@constants/colors"
-import { LogoIcon } from "@assets/icons/index"
 import consts from '@constants/index';
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
-interface Iprops {
-    state: any,
-    toggleShowPassword: () => void
-}
-const Layout: React.FC<Iprops> = ({ toggleShowPassword, state }) =>
+const Layout = ({
+    login,
+    toggleShowPassword,
+    onChangeText,
+    state,
+    passwordRef,
+    usernameRef
+}) =>
     <ScrollView
         style={[styles.container, { backgroundColor: colors.bg }]}
     >
@@ -23,14 +26,17 @@ const Layout: React.FC<Iprops> = ({ toggleShowPassword, state }) =>
             style={styles.form}
         >
             <AppTextInput
+                ref={usernameRef}
                 style={{ marginVertical: 3 }}
                 placeholder={"username"}
+                onChangeText={value => onChangeText("username", value)}
             />
             <AppTextInput
+                ref={passwordRef}
                 style={{ marginVertical: 3 }}
                 secureTextEntry={!state?.showPassword}
                 placeholder={"password"}
-                inputIcon={true}
+                onChangeText={value => onChangeText("password", value)}
                 inputIconComponent={
                     <AppTouch onPress={toggleShowPassword}>
                         {
@@ -57,12 +63,19 @@ const Layout: React.FC<Iprops> = ({ toggleShowPassword, state }) =>
                 <AppButton
                     label={"Enter to app"}
                     labelStyle={styles.buttonLabel}
+                    onPress={login}
+                    isloading={state.isloading}
                 />
-                <AppText
-                    style={{ color: colors.main, paddingTop: hp("5%") }}
-                >
-                    {"Make New Account"}
-                </AppText>
+                <View style={{ paddingTop: hp("5%"), flexDirection: 'row', alignItems: 'center' }}>
+                    <AppText>
+                        Dont have an account?
+                    </AppText>
+                    <AppText
+                        style={{ color: colors.main, marginHorizontal: 3 }}
+                    >
+                        Sign up
+                    </AppText>
+                </View>
             </View>
             <View
                 style={styles.divider}
@@ -108,7 +121,6 @@ const styles = StyleSheet.create({
         paddingTop: 8
     },
     termsStrings: {
-        fontSize: consts.FONT_SIZE_SMALL,
         textAlign: "center"
     },
 })
