@@ -10,7 +10,6 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 //this component is js beacuse of "react-native-vector-icons" typescript warnings
-
 const AppIcon = ({ ...props }) => {
     const { type, name, large, small, xsmall, color, style, bright } = props
 
