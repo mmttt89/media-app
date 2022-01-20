@@ -48,12 +48,12 @@ export default class ATextInputLogin extends React.Component {
     render() {
         const { isFocused, error } = this.state;
         const { onFocus, onBlur, label, labelStyle, small, xsmall, placeholder,
-           style, inputStyle, textInputStyle, iconComponent, inputIcon, inputIconComponent,
+            style, inputStyle, textInputStyle, iconComponent, inputIcon, inputIconComponent,
             rowIcon, rowIconProps, inputIconAction, ...otherProps } = this.props;
 
         let fontStyle = styles.normal;
         if (small) fontStyle = styles.small;
-        if (xsmall) fontStyle = styles.xsmall;        
+        if (xsmall) fontStyle = styles.xsmall;
 
         return (
             <View style={style}>
@@ -100,12 +100,12 @@ export default class ATextInputLogin extends React.Component {
                             </AppTouch> : null
                     }
                 </View>
-                <AppText xxsmall style={styles.error} >
+                <AppText xsmall style={styles.error} >
                     {
                         this.hasError() ? error : " "
                     }
                 </AppText>
-            </View>
+            </View>            
         )
     }
 }
@@ -115,7 +115,7 @@ var styles = StyleSheet.create({
         marginTop: hp('1%'),
         borderBottomColor: "#fff",
         borderBottomWidth: 3,
-        flexDirection: "row",        
+        flexDirection: "row",
         borderRadius: 5,
         backgroundColor: "#f9f9f9",
     },
@@ -160,5 +160,5 @@ var styles = StyleSheet.create({
     },
     xsmall: {
         fontSize: consts.FONT_SIZE_XSMALL
-    }   
+    }
 });

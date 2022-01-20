@@ -18,9 +18,9 @@ const Layout = ({
         style={[styles.container, { backgroundColor: colors.bg }]}
     >
         <View
-            style={[styles.centerize, { paddingTop: 10 }]}
+            style={styles.centerize}
         >
-            <LogoIcon />
+            <LogoIcon  width={hp('15%')}/>
         </View>
         <View
             style={styles.form}
@@ -47,18 +47,9 @@ const Layout = ({
                         }
                     </AppTouch>
                 }
-            />
+            />           
             <View
-                style={styles.centerize}
-            >
-                <AppText
-                    style={{ color: colors.lightBlue, paddingVertical: hp("2%") }}
-                >
-                    {"Forgot Password"}
-                </AppText>
-            </View>
-            <View
-                style={[{ marginTop: 5, marginBottom: 2 }, styles.centerize]}
+                style={[{ marginVertical: hp("1%") }, styles.centerize]}
             >
                 <AppButton
                     label={"Enter to app"}
@@ -70,12 +61,21 @@ const Layout = ({
                     <AppText>
                         Dont have an account?
                     </AppText>
-                    <AppText
+                    <AppText                    
                         style={{ color: colors.main, marginHorizontal: 3 }}
                     >
                         Sign up
                     </AppText>
                 </View>
+            </View>
+            <View
+                style={styles.centerize}
+            >
+                <AppText
+                    style={{ color: colors.lightBlue, paddingTop: hp("1%") }}
+                >
+                    Forgot Password
+                </AppText>
             </View>
             <View
                 style={styles.divider}
@@ -84,6 +84,7 @@ const Layout = ({
                 style={[styles.terms, styles.centerize]}
             >
                 <AppText
+                xsmall
                     style={styles.termsStrings}
                 >
                     {"By using this application you accept the terms of use"}
