@@ -1,12 +1,18 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import Layout from './Layout'
+
 
 export class PostsScreen extends Component {
+
+
+    componentDidMount() {
+
+    }
+
+
     render() {
         return (
-            <View>
-                <Text> PostsScreen </Text>
-            </View>
+            <Layout />
         )
     }
 }

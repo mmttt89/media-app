@@ -4,7 +4,7 @@ import AuthStack from './AuthStack';
 import AppTabs from './AppTabs';
 
 function AppStack() {
-  const [isSignedIn, setIsSignedIn] = useState(false)
+  const [isSignedIn, setIsSignedIn] = useState(true)
 
   return (
     <NavigationContainer>

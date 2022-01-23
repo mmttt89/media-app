@@ -9,7 +9,8 @@ import { Provider as PaperProvider } from 'react-native-paper';
 
 const { store, persistor } = storeObject
 const App = () => {
-  const isDarkMode = useColorScheme() === 'dark';
+  // const isDarkMode = useColorScheme() === 'dark';
+  const isDarkMode = false;
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? colors.darker : colors.lighter
@@ -20,7 +21,7 @@ const App = () => {
       <PersistGate persistor={persistor} loading={null}>
         <PaperProvider>
           <SafeAreaView style={[backgroundStyle, { flex: 1 }]}>
-            <StatusBar backgroundColor={colors.main} barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+            <StatusBar backgroundColor={backgroundStyle.backgroundColor} barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
             <View style={{ flex: 1 }}>
               <AppStack />
             </View>

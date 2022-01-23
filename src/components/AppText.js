@@ -1,15 +1,15 @@
-import React from 'react';
-import { Text, StyleSheet } from 'react-native';
+import React, { useState, useCallback, useEffect } from 'react';
+import { Text, StyleSheet, Pressable } from 'react-native';
 import consts from '@constants/index';
 import colors from '@constants/colors';
 
+let n = 0;
 const AppText = ({ ...props }) => {
   const {
     xlarge,
     large,
     small,
     xsmall,
-
     bold,
     medium,
     ultraLight,
@@ -17,8 +17,16 @@ const AppText = ({ ...props }) => {
     style,
     bright,
     gray,
-    link
+    link,
+    numberOfLines = 2
   } = props;
+
+  const [isShowText, setIsShowText] = useState(false);
+  const [isMore, setIsMore] = useState(false);
+
+  const _onTextLayout = useCallback(e => {
+    setIsMore(e.nativeEvent.lines.length >= numberOfLines);
+  }, []);
 
   let fontStyle = styles.normal;
   if (xlarge) fontStyle = styles.xlarge;
@@ -38,10 +46,28 @@ const AppText = ({ ...props }) => {
   if (link) color = colors.lightBlue;
 
   return (
-    <Text
-      {...props}
-      style={[{ fontFamily, color }, fontStyle, style]}
-    />
+    <>
+      <Text
+        onTextLayout={_onTextLayout}
+        numberOfLines={isShowText ? undefined : numberOfLines}
+        {...props}
+        style={[{ fontFamily, color }, fontStyle, style]}
+      >
+        {
+          props.children
+        }
+      </Text>
+      {
+        isMore && !isShowText ?
+          <AppText
+            bold
+            onPress={() => setIsShowText(true)}
+            style={{ lineHeight: 21, marginTop: 5 }}>
+            more
+          </AppText>
+          : null
+      }
+    </>
   );
 };
 

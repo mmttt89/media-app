@@ -4,6 +4,7 @@ import AppTouch from "./AppTouch"
 import AppTextInput from "./AppTextInput"
 import AppButton from "./AppButton";
 import AppIcon from "./AppIcon";
+import AppPost from "./AppPost";
 
 export {
     AppText,
@@ -11,5 +12,6 @@ export {
     AppTouch,
     AppTextInput,
     AppButton,
-    AppIcon
+    AppIcon,
+    AppPost
 }
