@@ -5,6 +5,8 @@ import AppTextInput from "./AppTextInput"
 import AppButton from "./AppButton";
 import AppIcon from "./AppIcon";
 import AppPost from "./AppPost";
+import AppProfileHeaderSmall from "./AppProfileHeaderSmall";
+import AppDivider from "./AppDivider";
 
 export {
     AppText,
@@ -13,5 +15,7 @@ export {
     AppTextInput,
     AppButton,
     AppIcon,
-    AppPost
+    AppPost,
+    AppProfileHeaderSmall,
+    AppDivider
 }

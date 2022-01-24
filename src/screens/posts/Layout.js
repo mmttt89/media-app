@@ -12,12 +12,18 @@ const data = {
     caption: "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Contrary to popular belief",
     likes: 73,
     comments: 24,
+    time: "2021/01/02"
 }
 
-const Layout = () => {
+const Layout = ({
+    navigateTo
+}) => {
     return (
         <AppLayoutContainer>
-            <AppPost data={data} />
+            <AppPost
+                data={data}
+                navigateTo={navigateTo}
+            />
         </AppLayoutContainer>
     );
 };

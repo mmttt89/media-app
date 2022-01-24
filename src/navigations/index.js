@@ -1,22 +1,25 @@
 import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import AuthStack from './AuthStack';
-import AppTabs from './AppTabs';
+import AppStack from './AppStack';
+import { navigationRef } from './RootNavigation';
 
-function AppStack() {
-  const [isSignedIn, setIsSignedIn] = useState(true)
+function AppNavigationTree() {
+   const [isSignedIn, setIsSignedIn] = useState(true)
 
-  return (
-    <NavigationContainer>
-      {
-        isSignedIn ?
-          <AppTabs />
-          :
-          <AuthStack />
-      }
-    </NavigationContainer>
-  );
+   return (
+      <NavigationContainer
+         ref={navigationRef}
+      >
+         {
+            isSignedIn ?
+               <AppStack />
+               :
+               <AuthStack />
+         }
+      </NavigationContainer>
+   );
 }
 
 
-export default AppStack;
+export default AppNavigationTree;

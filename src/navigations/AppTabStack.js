@@ -5,17 +5,20 @@ import { AppIcon } from "@components/index";
 
 const Tab = createBottomTabNavigator();
 
-const AppTabs = ({ ...props }) => {
+const AppTabStack = ({ ...props }) => {
     const { PostsScreen, CreateScreen, ProfileScreen } = Screens;
 
     return (
-        <Tab.Navigator screenOptions={{
-            tabBarShowLabel: false
-        }} {...props}>
+        <Tab.Navigator
+            screenOptions={{
+                tabBarShowLabel: false
+            }}
+            {...props}
+        >
             <Tab.Screen
                 name="Posts"
-                component={PostsScreen}
-                options={{
+                component={PostsScreen}                
+                options={{                    
                     tabBarIcon: ({ color, size }) => <AppIcon type="AntDesign" name="home" color={color} />
                 }}
             />
@@ -37,4 +40,4 @@ const AppTabs = ({ ...props }) => {
     )
 }
 
-export default AppTabs
+export default AppTabStack
