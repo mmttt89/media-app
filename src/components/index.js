@@ -7,6 +7,8 @@ import AppIcon from "./AppIcon";
 import AppPost from "./AppPost";
 import AppProfileHeaderSmall from "./AppProfileHeaderSmall";
 import AppDivider from "./AppDivider";
+import AppIndicator from "./AppIndicator";
+import AppErrorMessage from "./AppErrorMessage";
 
 export {
     AppText,
@@ -17,5 +19,7 @@ export {
     AppIcon,
     AppPost,
     AppProfileHeaderSmall,
-    AppDivider
+    AppDivider,
+    AppIndicator,
+    AppErrorMessage
 }

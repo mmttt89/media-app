@@ -1,107 +1,121 @@
 import React from 'react';
 import { Dimensions, Image, StyleSheet, View } from 'react-native';
 import { AppText, AppTouch, AppProfileHeaderSmall } from '@components/index';
+import FastImage from 'react-native-fast-image'
 import colors from '@constants/colors';
 import AppIcon from './AppIcon';
 import { navigateTo } from '@helpers/Utils';
 
 const { width } = Dimensions.get("window");
 
-const AppPost = ({ data, ...props }) => {
-    return (
-        <>
-            <View style={styles.post_header}>
-                <AppProfileHeaderSmall
-                    data={data}
-                />
-                <AppTouch>
-                    <AppIcon
-                        type="Entypo"
-                        name="dots-three-vertical"
+class AppPost extends React.PureComponent {
+    render() {
+        const { data, index } = this.props;
+        return (
+            <>
+                <View style={styles.post_header}>
+                    <AppProfileHeaderSmall
+                        user={data?.user}
                     />
-                </AppTouch>
-            </View>
-            <View style={styles.post_content}>
-                <Image
-                    source={{ uri: "https://i.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI" }}
-                    style={{
-                        width,
-                        height: width * 0.75,
-                        resizeMode: 'contain'
-                    }}
-                />
-            </View>
-            <View
-                style={styles.post_description}
-            >
+                    <AppText>{index + 1}</AppText>
+                    <AppTouch>
+                        <AppIcon
+                            type="Entypo"
+                            name="dots-three-vertical"
+                        />
+                    </AppTouch>
+                </View>
+                <View style={styles.post_content}>
+                    <FastImage                    
+                        source={{ uri: data?.urls?.raw }}
+                        style={{
+                            width,
+                            height: width * 0.75                            
+                        }}
+                        resizeMode={FastImage.resizeMode.contain}
+                    />
+                </View>
                 <View
-                    style={styles.post_like_buttons_container}
+                    style={styles.post_description}
                 >
                     <View
-                        style={styles.post_like_buttons}
+                        style={styles.post_like_buttons_container}
                     >
-                        <AppIcon
-                            type="AntDesign"
-                            name="hearto"
-                            style={{ fontSize: 20, marginRight: 3 }}
-                        />
-                        <AppIcon
-                            type="Fontisto"
-                            name="comment"
-                            style={{ fontSize: 18, marginHorizontal: 3 }}
-                            onPress={() => navigateTo("PostDetails", { data })}
-                        />
+                        <View
+                            style={styles.post_like_buttons}
+                        >
+                            {
+                                data?.liked_by_user ?
+                                    <AppIcon
+                                        type="AntDesign"
+                                        name="heart"
+                                        style={{ fontSize: 20, marginRight: 3, color: "#eb346e" }}
+                                    />
+                                    :
+                                    <AppIcon
+                                        type="AntDesign"
+                                        name="hearto"
+                                        style={{ fontSize: 20, marginRight: 3 }}
+                                    />
+                            }
+                            <AppIcon
+                                type="Fontisto"
+                                name="comment"
+                                style={{ fontSize: 18, marginHorizontal: 3 }}
+                                onPress={() => navigateTo("PostDetails", { data })}
+                            />
+                            <AppIcon
+                                type="Feather"
+                                name="send"
+                                style={{ fontSize: 18, marginHorizontal: 3 }}
+                            />
+                        </View>
                         <AppIcon
                             type="Feather"
-                            name="send"
-                            style={{ fontSize: 18, marginHorizontal: 3 }}
+                            name="bookmark"
+                            style={{ fontSize: 20, marginLeft: 3 }}
                         />
                     </View>
-                    <AppIcon
-                        type="Feather"
-                        name="bookmark"
-                        style={{ fontSize: 20, marginLeft: 3 }}
-                    />
-                </View>
-                <View
-                    style={{ marginTop: 6 }}
-                >
-                    <AppText
-                        bold
-                        onPress={() => navigateTo("Likes")}
+                    <View
+                        style={{ marginTop: 6 }}
                     >
-                        {data?.likes} likes
-                    </AppText>
-                    <View>
-                        <AppText bold>
-                            {
-                                data.user?.name
-                            } <AppText onPress={() => navigateTo("PostDetails", { data })}>
+                        <AppText
+                            bold
+                            onPress={() => navigateTo("Likes")}
+                        >
+                            {data?.likes} likes
+                        </AppText>
+                        <View>
+                            <AppText bold>
                                 {
-                                    data.caption
-                                }
+                                    data.user?.name
+                                } <AppText onPress={() => navigateTo("PostDetails", { data })}>
+                                    {
+                                        data.description
+                                    }
+                                </AppText>
                             </AppText>
+                        </View>
+                        <AppText
+                            gray
+                            onPress={() => navigateTo("PostDetails", { data })}
+                        >
+                            {`View all ${data?.comments} comments`}
+                        </AppText>
+                        <AppText
+                            xsmall
+                            gray
+                        >
+                            {
+                                data?.time
+                            }
                         </AppText>
                     </View>
-                    <AppText
-                        gray
-                        onPress={() => navigateTo("PostDetails", { data })}
-                    >
-                        {`View all ${data?.comments} comments`}
-                    </AppText>
-                    <AppText
-                        xsmall
-                        gray
-                    >
-                        {
-                            data?.time
-                        }
-                    </AppText>
                 </View>
-            </View>
-        </>
-    );
-};
+            </>
+        )
+    }
+}
 
 export default AppPost;
 

@@ -1,14 +1,15 @@
-import { StyleSheet, Image, View } from 'react-native';
 import React from 'react';
+import { StyleSheet, Image, View } from 'react-native';
 import { AppTouch, AppText } from "@components/index"
+import FastImage from 'react-native-fast-image'
 
 const SIZE = 40;
-const AppProfileHeaderSmall = ({ data, showContent = false, content, ...props }) =>
+const AppProfileHeaderSmall = ({ user, showContent = false, content, ...props }) =>
    <AppTouch
       style={[styles.post_header_touch, showContent ? { alignItems: "flex-start" } : null]}
    >
-      <Image
-         source={{ uri: "https://i.picsum.photos/id/176/200/300.jpg?grayscale&hmac=Jdj7SwPo39coGPNTY3C3uRMWWUNWrDo5rOqcS6Gwgf0" }}
+      <FastImage
+         source={{ uri: user?.profile_image.raw }}
          style={{
             width: SIZE,
             height: SIZE,
@@ -23,7 +24,7 @@ const AppProfileHeaderSmall = ({ data, showContent = false, content, ...props })
                style={{ marginHorizontal: 5 }}
             >
                {
-                  data?.user?.name + " "
+                  user?.name + " "
                }
                {
                   showContent ? <AppText showAllCaption={true}>

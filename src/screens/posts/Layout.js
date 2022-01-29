@@ -1,33 +1,69 @@
 
 import React from 'react';
-import { AppLayoutContainer, AppText, AppPost } from '@components/index';
-
-const data = {
-    user: {
-        id: "id of user",
-        name: "Orginal page",
-        imageUrl: "https://i.picsum.photos/id/176/200/300.jpg?grayscale&hmac=Jdj7SwPo39coGPNTY3C3uRMWWUNWrDo5rOqcS6Gwgf0",
-        postUrl: "https://i.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI"
-    },
-    caption: "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Contrary to popular belief",
-    likes: 73,
-    comments: 24,
-    time: "2021/01/02"
-}
+import { FlatList, View } from 'react-native';
+import { AppLayoutContainer, AppText, AppTouch, AppPost, AppErrorMessage, AppIndicator } from '@components/index';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "react-native-responsive-screen"
+import colors from '@constants/colors';
 
 const Layout = ({
-    navigateTo
+    postsData,
+    isloading,
+    isloadMoreLoading,
+    isPullToRefreshLoading,
+    loadMore,
+    pullToRefresh,
+    errorMessage,
+    noMore,
+    ...props
 }) => {
     return (
         <AppLayoutContainer>
-            <AppPost
-                data={data}
-                navigateTo={navigateTo}
-            />
+            {
+                isloading ?
+                    <AppIndicator
+                        containerStyle={{ flex: 1 }}
+                    />
+                    :
+                    <FlatList
+                        removeClippedSubviews={true}
+                        data={postsData}
+                        refreshing={isPullToRefreshLoading}
+                        onRefresh={pullToRefresh}
+                        ListFooterComponent={postsData.length !== 0 ? <RenderFooter
+                            isloadMoreLoading={isloadMoreLoading}
+                            noMore={noMore}
+                        /> : null
+                        }
+                        onEndReached={!isloadMoreLoading ? loadMore : null}
+                        onEndReachedThreshold={0.5}
+                        keyExtractor={(_, index) => index.toString()}
+                        renderItem={({ item, index }) => <AppPost data={item} index={index} />}
+                    />
+            }
+            {
+                errorMessage ?
+                    <AppErrorMessage
+                        containerStyle={{ flex: 1 }}
+                        message={errorMessage}
+                        onPress={loadMore}
+                    /> : null
+            }
         </AppLayoutContainer>
     );
 };
 
 export default Layout;
+
+const RenderFooter = ({ isloadMoreLoading, noMore }) =>
+    <View style={{
+        width: "100%", justifyContent: "center", alignItems: 'center'
+    }}>
+        {
+            !noMore && isloadMoreLoading ?
+                <AppIndicator />
+                :
+                null
+        }
+    </View >
 
 

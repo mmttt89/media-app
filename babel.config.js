@@ -29,7 +29,8 @@ module.exports = {
           "@screens": "./src/screens",
           "@helpers": "./src/helpers",
           "@services": "./src/services",
-          "@redux": "./src/redux"
+          "@redux": "./src/redux",
+          "@data": "./src/data",
         }
       }
     ]
