@@ -7,7 +7,7 @@ module.exports = {
   },
   plugins: [
     [
-      "module-resolver",
+      "module-resolver",      
       {
         "root": ["./src"],
         "extensions": [
@@ -33,6 +33,7 @@ module.exports = {
           "@data": "./src/data",
         }
       }
-    ]
+    ],
+    'react-native-reanimated/plugin'
   ]
 };

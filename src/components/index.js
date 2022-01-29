@@ -9,6 +9,7 @@ import AppProfileHeaderSmall from "./AppProfileHeaderSmall";
 import AppDivider from "./AppDivider";
 import AppIndicator from "./AppIndicator";
 import AppErrorMessage from "./AppErrorMessage";
+import AppLikeButton from "./AppLikeButton";
 
 export {
     AppText,
@@ -21,5 +22,6 @@ export {
     AppProfileHeaderSmall,
     AppDivider,
     AppIndicator,
-    AppErrorMessage
+    AppErrorMessage,
+    AppLikeButton
 }

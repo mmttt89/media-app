@@ -1,10 +1,10 @@
 import React from 'react';
 import { Dimensions, Image, StyleSheet, View } from 'react-native';
-import { AppText, AppTouch, AppProfileHeaderSmall } from '@components/index';
+import { AppText, AppTouch, AppProfileHeaderSmall, AppLikeButton } from '@components/index';
 import FastImage from 'react-native-fast-image'
 import colors from '@constants/colors';
 import AppIcon from './AppIcon';
-import { navigateTo } from '@helpers/Utils';
+import { navigateTo, fromNow } from '@helpers/Utils';
 
 const { width } = Dimensions.get("window");
 
@@ -26,11 +26,11 @@ class AppPost extends React.PureComponent {
                     </AppTouch>
                 </View>
                 <View style={styles.post_content}>
-                    <FastImage                    
+                    <FastImage
                         source={{ uri: data?.urls?.raw }}
                         style={{
                             width,
-                            height: width * 0.75                            
+                            height: width * 0.75
                         }}
                         resizeMode={FastImage.resizeMode.contain}
                     />
@@ -45,18 +45,19 @@ class AppPost extends React.PureComponent {
                             style={styles.post_like_buttons}
                         >
                             {
-                                data?.liked_by_user ?
-                                    <AppIcon
-                                        type="AntDesign"
-                                        name="heart"
-                                        style={{ fontSize: 20, marginRight: 3, color: "#eb346e" }}
-                                    />
-                                    :
-                                    <AppIcon
-                                        type="AntDesign"
-                                        name="hearto"
-                                        style={{ fontSize: 20, marginRight: 3 }}
-                                    />
+                                // data?.liked_by_user ?
+                                //     <AppIcon
+                                //         type="AntDesign"
+                                //         name="heart"
+                                //         style={{ fontSize: 20, marginRight: 3, color: "#eb346e" }}
+                                //     />
+                                //     :
+                                //     <AppIcon
+                                //         type="AntDesign"
+                                //         name="hearto"
+                                //         style={{ fontSize: 20, marginRight: 3 }}
+                                //     />
+                                <AppLikeButton />
                             }
                             <AppIcon
                                 type="Fontisto"
@@ -107,7 +108,7 @@ class AppPost extends React.PureComponent {
                             gray
                         >
                             {
-                                data?.time
+                                fromNow(data?.created_at)
                             }
                         </AppText>
                     </View>

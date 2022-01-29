@@ -5,7 +5,6 @@ import storeObject from "@redux/store/index"
 import { PersistGate } from 'redux-persist/integration/react';
 import colors from '@constants/colors';
 import AppStack from '@navigations/index';
-import { Provider as PaperProvider } from 'react-native-paper';
 
 const { store, persistor } = storeObject
 const App = () => {
@@ -19,14 +18,14 @@ const App = () => {
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor} loading={null}>
-        <PaperProvider>
+        
           <SafeAreaView style={[backgroundStyle, { flex: 1 }]}>
             <StatusBar backgroundColor={backgroundStyle.backgroundColor} barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
             <View style={{ flex: 1 }}>
               <AppStack />
             </View>
           </SafeAreaView>
-        </PaperProvider>
+        
       </PersistGate>
     </Provider>
   );
