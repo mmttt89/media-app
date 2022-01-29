@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Pressable, StyleSheet } from "react-native";
 import { AppIcon } from "@components/index";
 import Animated, { useSharedValue, withSpring, useAnimatedStyle, interpolate, Extrapolate } from "react-native-reanimated";
 
-const AppLikeButton = () => {
-    const liked = useSharedValue(0);
+const AppLikeButton = ({ isLiked, doubleTap, ...props }) => {
+    const liked = useSharedValue(isLiked ? 1 : 0);
+    const [isMounted, setIsMounted] = useState(false)
 
     const outlineStyle = useAnimatedStyle(() => {
         return {
@@ -19,8 +20,20 @@ const AppLikeButton = () => {
         };
     });
 
+    const _like = () => {
+        liked.value = withSpring(liked.value ? 0 : 1)
+    }
+
+    useEffect(() => {
+        if (isMounted) {
+            _like()
+        }
+        setIsMounted(true)
+    }, [isLiked]);
+
+
     return (
-        <Pressable onPress={() => (liked.value = withSpring(liked.value ? 0 : 1))}>
+        <Pressable onPress={_like} {...props}>
             <Animated.View
                 style={[
                     StyleSheet.absoluteFillObject,
@@ -41,6 +54,5 @@ const AppLikeButton = () => {
         </Pressable>
     );
 };
-
 
 export default AppLikeButton;

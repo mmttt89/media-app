@@ -5,19 +5,27 @@ import FastImage from 'react-native-fast-image'
 import colors from '@constants/colors';
 import AppIcon from './AppIcon';
 import { navigateTo, fromNow } from '@helpers/Utils';
+import AppDoubleTap from './AppDoubleTap';
 
 const { width } = Dimensions.get("window");
 
 class AppPost extends React.PureComponent {
+    state = {
+        isLiked: this.props.data.liked_by_user
+    }
+
+    tapped = () => {        
+        this.setState(prevState => ({ ...prevState, isLiked: !prevState.isLiked }))
+    }
+
     render() {
-        const { data, index } = this.props;
+        const { data } = this.props;
         return (
             <>
                 <View style={styles.post_header}>
                     <AppProfileHeaderSmall
                         user={data?.user}
                     />
-                    <AppText>{index + 1}</AppText>
                     <AppTouch>
                         <AppIcon
                             type="Entypo"
@@ -26,14 +34,16 @@ class AppPost extends React.PureComponent {
                     </AppTouch>
                 </View>
                 <View style={styles.post_content}>
-                    <FastImage
-                        source={{ uri: data?.urls?.raw }}
-                        style={{
-                            width,
-                            height: width * 0.75
-                        }}
-                        resizeMode={FastImage.resizeMode.contain}
-                    />
+                    <AppDoubleTap onDoubleTap={this.tapped}>
+                        <FastImage
+                            source={{ uri: data?.urls?.raw }}
+                            style={{
+                                width,
+                                height: width * 0.75
+                            }}
+                            resizeMode={FastImage.resizeMode.contain}
+                        />
+                    </AppDoubleTap>
                 </View>
                 <View
                     style={styles.post_description}
@@ -44,21 +54,9 @@ class AppPost extends React.PureComponent {
                         <View
                             style={styles.post_like_buttons}
                         >
-                            {
-                                // data?.liked_by_user ?
-                                //     <AppIcon
-                                //         type="AntDesign"
-                                //         name="heart"
-                                //         style={{ fontSize: 20, marginRight: 3, color: "#eb346e" }}
-                                //     />
-                                //     :
-                                //     <AppIcon
-                                //         type="AntDesign"
-                                //         name="hearto"
-                                //         style={{ fontSize: 20, marginRight: 3 }}
-                                //     />
-                                <AppLikeButton />
-                            }
+
+                            <AppLikeButton isLiked={this.state.isLiked} />
+
                             <AppIcon
                                 type="Fontisto"
                                 name="comment"

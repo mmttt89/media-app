@@ -10,6 +10,7 @@ import AppDivider from "./AppDivider";
 import AppIndicator from "./AppIndicator";
 import AppErrorMessage from "./AppErrorMessage";
 import AppLikeButton from "./AppLikeButton";
+import AppDoubleTap from "./AppDoubleTap";
 
 export {
     AppText,
@@ -23,5 +24,6 @@ export {
     AppDivider,
     AppIndicator,
     AppErrorMessage,
-    AppLikeButton
+    AppLikeButton,
+    AppDoubleTap
 }
