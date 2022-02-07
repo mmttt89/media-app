@@ -1,11 +1,9 @@
 import React from 'react';
-import { Dimensions, Image, StyleSheet, View } from 'react-native';
-import { AppText, AppTouch, AppProfileHeaderSmall, AppLikeButton } from '@components/index';
+import { Dimensions, StyleSheet, View } from 'react-native';
+import { AppText, AppTouch, AppProfileHeaderSmall, AppLikeButton, AppBookmark, AppIcon, AppDoubleTap } from '@components/index';
 import FastImage from 'react-native-fast-image'
 import colors from '@constants/colors';
-import AppIcon from './AppIcon';
 import { navigateTo, fromNow } from '@helpers/Utils';
-import AppDoubleTap from './AppDoubleTap';
 
 const { width } = Dimensions.get("window");
 
@@ -14,7 +12,7 @@ class AppPost extends React.PureComponent {
         isLiked: this.props.data.liked_by_user
     }
 
-    tapped = () => {        
+    _tapped = () => {
         this.setState(prevState => ({ ...prevState, isLiked: !prevState.isLiked }))
     }
 
@@ -34,7 +32,7 @@ class AppPost extends React.PureComponent {
                     </AppTouch>
                 </View>
                 <View style={styles.post_content}>
-                    <AppDoubleTap onDoubleTap={this.tapped}>
+                    <AppDoubleTap onDoubleTap={this._tapped}>
                         <FastImage
                             source={{ uri: data?.urls?.raw }}
                             style={{
@@ -56,7 +54,6 @@ class AppPost extends React.PureComponent {
                         >
 
                             <AppLikeButton isLiked={this.state.isLiked} />
-
                             <AppIcon
                                 type="Fontisto"
                                 name="comment"
@@ -69,11 +66,8 @@ class AppPost extends React.PureComponent {
                                 style={{ fontSize: 18, marginHorizontal: 3 }}
                             />
                         </View>
-                        <AppIcon
-                            type="Feather"
-                            name="bookmark"
-                            style={{ fontSize: 20, marginLeft: 3 }}
-                        />
+                        <AppBookmark id={data.id} data={data}/>
+
                     </View>
                     <View
                         style={{ marginTop: 6 }}

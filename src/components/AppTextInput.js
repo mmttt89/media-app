@@ -49,7 +49,7 @@ export default class ATextInputLogin extends React.Component {
         const { isFocused, error } = this.state;
         const { onFocus, onBlur, label, labelStyle, small, xsmall, placeholder,
             style, inputStyle, textInputStyle, iconComponent, inputIcon, inputIconComponent,
-            rowIcon, rowIconProps, inputIconAction, ...otherProps } = this.props;
+            rowIcon, rowIconProps, inputIconAction, simpleInput, ...otherProps } = this.props;
 
         let fontStyle = styles.normal;
         if (small) fontStyle = styles.small;
@@ -67,7 +67,7 @@ export default class ATextInputLogin extends React.Component {
                         </AppText> : null
                 }
                 <View
-                    style={[styles.container, isFocused ? styles.isFocused : null]}>
+                    style={[simpleInput ? styles.simpleContainer: styles.container, isFocused ? styles.isFocused : null]}>
                     {
                         rowIcon ?
                             <View style={styles.rowIcon}>
@@ -85,7 +85,7 @@ export default class ATextInputLogin extends React.Component {
                         onBlur={this.handleBlur}
                         onFocus={this.handleFocus}
                         onSubmitEditing={Keyboard.dismiss}
-                        style={[styles.input, fontStyle, textInputStyle]}
+                        style={[simpleInput ? styles.simpleInput : styles.input, fontStyle, textInputStyle]}                        
                         {...otherProps}
                     />
                     {
@@ -105,7 +105,7 @@ export default class ATextInputLogin extends React.Component {
                         this.hasError() ? error : " "
                     }
                 </AppText>
-            </View>            
+            </View>
         )
     }
 }
@@ -118,6 +118,9 @@ var styles = StyleSheet.create({
         flexDirection: "row",
         borderRadius: 5,
         backgroundColor: "#f9f9f9",
+    },
+    simpleContainer: {        
+        flexDirection: "row",        
     },
     isFocused: {
         borderBottomColor: colors.main
@@ -132,6 +135,11 @@ var styles = StyleSheet.create({
         minHeight: hp("6%"),
         flexDirection: "row",
         alignItems: 'center'
+    },
+    simpleInput: {
+        flex: 1,
+        paddingHorizontal: wp("3%"),
+        fontFamily: consts.FONT_FAMILY_NORMAL,
     },
     inputIcon: {
         justifyContent: "center",

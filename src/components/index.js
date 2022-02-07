@@ -11,12 +11,17 @@ import AppIndicator from "./AppIndicator";
 import AppErrorMessage from "./AppErrorMessage";
 import AppLikeButton from "./AppLikeButton";
 import AppDoubleTap from "./AppDoubleTap";
+import AppBookmark from "./AppBookmark";
+import AppTextInputSimple from "./AppTextInputSimple";
+import AppTextSimple from "./AppTextSimple";
 
 export {
     AppText,
+    AppTextSimple,
     AppLayoutContainer,
     AppTouch,
     AppTextInput,
+    AppTextInputSimple,
     AppButton,
     AppIcon,
     AppPost,
@@ -25,5 +30,6 @@ export {
     AppIndicator,
     AppErrorMessage,
     AppLikeButton,
-    AppDoubleTap
+    AppDoubleTap,
+    AppBookmark
 }

@@ -25,7 +25,7 @@ const AppText = ({ showAllCaption = false, ...props }) => {
 
    const _onTextLayout = useCallback(e => {
       setIsMore(e.nativeEvent.lines.length >= numberOfLines)
-   }, []);
+   }, []);  
 
    let fontStyle = styles.normal;
    if (xlarge) fontStyle = styles.xlarge;
