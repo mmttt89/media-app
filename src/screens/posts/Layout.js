@@ -1,9 +1,8 @@
 
 import React from 'react';
 import { FlatList, View } from 'react-native';
-import { AppLayoutContainer, AppText, AppTouch, AppPost, AppErrorMessage, AppIndicator } from '@components/index';
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "react-native-responsive-screen"
-import colors from '@constants/colors';
+import { AppLayoutContainer, AppPost, AppErrorMessage, AppIndicator } from '@components/index';
+
 
 const Layout = ({
     postsData,
@@ -65,5 +64,3 @@ const RenderFooter = ({ isloadMoreLoading, noMore }) =>
                 null
         }
     </View >
-
-

@@ -16,6 +16,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": true,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -53,6 +54,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": false,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -90,6 +92,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": false,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -127,6 +130,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": true,
+        "bookmarked_by_user": true,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -164,6 +168,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": false,
+        "bookmarked_by_user": true,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -201,6 +206,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": false,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -238,6 +244,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": false,
+        "bookmarked_by_user": true,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -275,6 +282,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": false,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -312,6 +320,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": false,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -349,6 +358,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": false,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -386,6 +396,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": false,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -423,6 +434,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": false,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -460,6 +472,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": false,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -497,6 +510,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": false,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -534,6 +548,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": false,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -571,6 +586,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": false,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -608,6 +624,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": false,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -645,6 +662,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": false,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -682,6 +700,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": false,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -719,6 +738,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": false,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -756,6 +776,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": false,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -793,6 +814,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": false,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -830,6 +852,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": false,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -867,6 +890,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": false,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -904,6 +928,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": false,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -941,6 +966,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": false,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -978,6 +1004,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": false,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -1015,6 +1042,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": false,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -1052,6 +1080,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": false,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -1089,6 +1118,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": false,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -1126,6 +1156,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": false,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -1163,6 +1194,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": false,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -1200,6 +1232,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": true,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -1237,6 +1270,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": true,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -1274,6 +1308,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": true,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -1311,6 +1346,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": true,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -1348,6 +1384,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": true,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -1385,6 +1422,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": true,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -1422,6 +1460,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": true,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -1459,6 +1498,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": true,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -1496,6 +1536,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": true,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -1533,6 +1574,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": true,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -1570,6 +1612,7 @@ const POSTS = [
         "likes": `${randomIntNumber()}`,
         "comments": 24,
         "liked_by_user": true,
+        "bookmarked_by_user": false,
         "user": {
             "id": "99F2rjzG4Js",
             "updated_at": "2022-01-28T20:38:49-05:00",
@@ -1591,7 +1634,7 @@ const POSTS = [
             "accepted_tos": true,
             "for_hire": false,
         }
-    },    
+    },
 ]
 
 export default POSTS;

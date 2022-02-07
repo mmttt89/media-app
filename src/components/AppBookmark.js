@@ -7,9 +7,9 @@ import BOOKMARKS from '@data/bookmarks';
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import { AppIcon, AppText, AppTextInputSimple, AppTouch, AppTextSimple, AppIndicator } from "@components/index"
 
-const AppBookmark = ({ id, data, ...props }) => {
+const AppBookmark = ({ data, ...props }) => {
     const [isModalVisible, setIsModalVisible] = useState(false);
-    const [bookmarkState, setBookmarkState] = useState({ bookmarks: [], isCreateNewCollection: false, collectionName: "", isloading: false })
+    const [bookmarkState, setBookmarkState] = useState({ bookmarks: [], isCreateNewCollection: false, collectionName: "", isloading: false, bookmarkedByUser: data?.bookmarked_by_user })
 
     const _loadBookmarks = () => {
         //fetch bookmarks
@@ -32,15 +32,34 @@ const AppBookmark = ({ id, data, ...props }) => {
         setBookmarkState(prevState => ({ ...prevState, isCreateNewCollection: false, collectionName: "" }))
     }
 
+    const _confirmBookmark = (bookmarkId, postId) => {
+        setBookmarkState(prevState => ({ ...prevState, bookmarkedByUser: true }))
+        setIsModalVisible(false)
+    }
+
+    const _remove = () => {
+        setBookmarkState(prevState => ({ ...prevState, bookmarkedByUser: false }))
+    }
+
+    const _addToLastBookmarkItem = () => {
+        setBookmarkState(prevState => ({ ...prevState, bookmarkedByUser: true }))
+    }
+
     return (
         <>
-            <AppIcon
-                type="Feather"
-                name="bookmark"
-                style={{ fontSize: 20, marginLeft: 3 }}
-                onLongPress={_loadBookmarks}
-                onPress={() => console.log({ id })}
-            />
+            <AppTouch
+                onLongPress={() => _loadBookmarks()}
+                onPress={
+                    () => bookmarkState?.bookmarkedByUser ? _remove() : _addToLastBookmarkItem()
+                }
+            >
+                <AppIcon
+                    type="FontAwesome"
+                    name={bookmarkState?.bookmarkedByUser ? "bookmark" : "bookmark-o"}
+                    style={{ fontSize: 20, marginLeft: 3 }}
+                />
+            </AppTouch>
+
             <Modal
                 isVisible={isModalVisible}
                 onBackButtonPress={() => setIsModalVisible(false)}
@@ -49,7 +68,7 @@ const AppBookmark = ({ id, data, ...props }) => {
                 avoidKeyboard={true}
                 onModalWillHide={_onModalHide}
             >
-                <View style={{ height: hp("28%"), backgroundColor: "#fff" }}>
+                <View style={{ height: hp("28%"), backgroundColor: colors.bg }}>
                     <View style={styles.header}>
                         {
                             bookmarkState.isCreateNewCollection ?
@@ -104,6 +123,7 @@ const AppBookmark = ({ id, data, ...props }) => {
                                                 return (
                                                     <CollectionItem
                                                         isReadonly
+                                                        onPress={() => _confirmBookmark(bookmarkItem.id, data?.id)}
                                                         key={bookmarkIndex.toString()}
                                                         source={{ uri: bookmarkItem?.urls?.raw }}
                                                         onChangeText={onChangeText}
@@ -116,7 +136,8 @@ const AppBookmark = ({ id, data, ...props }) => {
                         }
                     </View>
                     <ModalActionButton
-                        onPress={() => setIsModalVisible(false)}
+                        cancelAction={() => setIsModalVisible(false)}
+                        confirmAction={() => _confirmBookmark()}
                         confirmCondition={bookmarkState?.isCreateNewCollection && bookmarkState?.collectionName.trim()}
                     />
                 </View>
@@ -127,9 +148,10 @@ const AppBookmark = ({ id, data, ...props }) => {
 
 export default AppBookmark;
 
-const ModalActionButton = ({ confirmCondition, ...props }) =>
+const ModalActionButton = ({ confirmCondition, cancelAction, confirmAction, ...props }) =>
     <AppTouch
         style={[styles.footer, confirmCondition ? { backgroundColor: colors.main } : null]}
+        onPress={confirmCondition ? confirmAction : cancelAction}
         {...props}
     >
         <AppText bold style={confirmCondition ? { color: colors.bg } : null}>
@@ -140,7 +162,10 @@ const ModalActionButton = ({ confirmCondition, ...props }) =>
     </AppTouch>
 
 const CollectionItem = ({ source, title, isReadonly, onChangeText, ...props }) =>
-    <View style={{ justifyContent: 'center', alignItems: 'center', marginHorizontal: 15 }}>
+    <AppTouch
+        style={{ justifyContent: 'center', alignItems: 'center', marginHorizontal: 15 }}
+        {...props}
+    >
         <Image
             source={source}
             style={{
@@ -166,7 +191,7 @@ const CollectionItem = ({ source, title, isReadonly, onChangeText, ...props }) =
                     onChangeText={onChangeText}
                 />
         }
-    </View>
+    </AppTouch>
 
 const sharedStyles = {
     footer_header: {

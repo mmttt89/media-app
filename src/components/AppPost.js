@@ -18,6 +18,7 @@ class AppPost extends React.PureComponent {
 
     render() {
         const { data } = this.props;
+        
         return (
             <>
                 <View style={styles.post_header}>
@@ -52,7 +53,6 @@ class AppPost extends React.PureComponent {
                         <View
                             style={styles.post_like_buttons}
                         >
-
                             <AppLikeButton isLiked={this.state.isLiked} />
                             <AppIcon
                                 type="Fontisto"
