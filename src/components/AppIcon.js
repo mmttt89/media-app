@@ -8,6 +8,8 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Feather from "react-native-vector-icons/Feather"
+import Fontisto from "react-native-vector-icons/Fontisto"
 
 //this component is js beacuse of "react-native-vector-icons" typescript warnings
 const AppIcon = ({ ...props }) => {
@@ -30,6 +32,8 @@ const AppIcon = ({ ...props }) => {
             case "AntDesign": return <AntDesign bright name={name} style={[{ color: customColor }, fontStyle, style]} {...props} />
             case "Entypo": return <Entypo bright name={name} style={[{ color: customColor }, fontStyle, style]} {...props} />
             case "MaterialIcons": return <MaterialIcons bright name={name} style={[{ color: customColor }, fontStyle, style]} {...props} />
+            case "Feather": return <Feather bright name={name} style={[{ color: customColor }, fontStyle, style]} {...props} />
+            case "Fontisto": return <Fontisto bright name={name} style={[{ color: customColor }, fontStyle, style]} {...props} />
             default: <View><Text>No Icon</Text></View>
         }
     }

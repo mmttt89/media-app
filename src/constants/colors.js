@@ -6,9 +6,9 @@ const textDefault = "#4d4d4d";
 const textBright = "#fff";
 const lightBlue = "#60aae6";
 const bg = "#fff"
-const darker = "#333";
-const lighter = "#f1f1f1";
-const icon = "#bebebe"
+const lighter = "#fff";
+const darker = "#919191";
+const icon = "#4d4d4d"
 
 export default {
     main,
