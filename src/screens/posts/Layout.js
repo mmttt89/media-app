@@ -36,7 +36,7 @@ const Layout = ({
                         onEndReached={!isloadMoreLoading ? loadMore : null}
                         onEndReachedThreshold={0.5}
                         keyExtractor={(_, index) => index.toString()}
-                        renderItem={({ item, index }) => <AppPost data={item} index={index} />}
+                        renderItem={({ item, index }) => <AppPost data={item} index={index} style={{ marginBottom: 12 }} />}
                     />
             }
             {

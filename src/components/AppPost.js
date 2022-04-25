@@ -17,10 +17,10 @@ class AppPost extends React.PureComponent {
     }
 
     render() {
-        const { data } = this.props;
+        const { data, style } = this.props;
         
         return (
-            <>
+            <View style={style}>
                 <View style={styles.post_header}>
                     <AppProfileHeaderSmall
                         user={data?.user}
@@ -105,7 +105,7 @@ class AppPost extends React.PureComponent {
                         </AppText>
                     </View>
                 </View>
-            </>
+            </View>
         )
     }
 }
