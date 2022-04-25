@@ -1,3 +1,5 @@
+## Under Development...
+
 ## Explanation
 This is an application with foucs on a UI like instagram. it is bootstraped with React-Native and main foucs is on UI part
 like posts and profile gallery using mock data.
@@ -17,3 +19,9 @@ this is still in development phase so the ios might not look good
 
 ### screen shots
 comming soon...
+<p float="left">
+<img src="https://github.com/mmttt89/media_app/blob/master/Screenshots/posts.png" width="250" aspectRatio="1/2">
+<img src="https://github.com/mmttt89/media_app/blob/master/Screenshots/comments.png" width="250" aspectRatio="1/2">
+<img src="https://github.com/mmttt89/media_app/blob/master/Screenshots/new_collection.png" width="250" aspectRatio="1/2">
+<img src="https://github.com/mmttt89/media_app/blob/master/Screenshots/save_to.png" width="250" aspectRatio="1/2">
+</p>
