@@ -21,7 +21,7 @@ this is still in development phase so the ios might not look good
 comming soon...
 <p float="left">
 <img src="https://github.com/mmttt89/media_app/blob/posts/Screenshots/posts.png" width="250" aspectRatio="1/2">
-<img src="https://github.com/mmttt89/media_app/blob/posts/Screenshots/comments.png" width="250" aspectRatio="1/2">
+<img src="https://github.com/mmttt89/media-app/blob/posts/Screenshots/comments.png" width="250" aspectRatio="1/2">
 <img src="https://github.com/mmttt89/media_app/blob/posts/Screenshots/new_collection.png" width="250" aspectRatio="1/2">
 <img src="https://github.com/mmttt89/media_app/blob/posts/Screenshots/save_to.png" width="250" aspectRatio="1/2">
 </p>
